@@ -281,10 +281,10 @@ class Puzzle8Game(GameMaster):
         goalY = movable_statement.terms[4].term.element
         r1 = parse_input("fact: (on " + tile + " " + initialX + " " + initialY + ")")
         self.kb.kb_retract(r1)
-        stat1 = parse_input("fact: (on " + tile + " " + goalX + " " + goalY + ")")
-        self.kb.kb_assert(stat1)
         r2 = parse_input("fact: (on empty " + goalX + " " + goalY + ")")
         self.kb.kb_retract(r2)
+        stat1 = parse_input("fact: (on " + tile + " " + goalX + " " + goalY + ")")
+        self.kb.kb_assert(stat1)
         stat2 = parse_input("fact: (on empty " + initialX + " " + initialY + ")")
         self.kb.kb_assert(stat2)
 
